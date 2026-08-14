@@ -1,10 +1,12 @@
 import express from "express";
 import { route } from "./routes/url.routes.js";
 import cors from "cors";
+import 'dotenv/config'
 const app = express();
+const frontendHosted = process.env.FRONTEND_HOSTED;
 app.use(
   cors({
-    origin: "http://localhost:5175",
+    origin: frontendHosted,
   }),
 );
 app.use(express.json());
