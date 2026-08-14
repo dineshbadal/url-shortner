@@ -15,10 +15,9 @@ dotenv.config({
 const app = express();
 // Origins allowed to access the backend
 const allowedOrigins = [
-    "http://localhost:5173",           // local dev
-    process.env.FRONTEND_HOSTED,      // production frontend (e.g. Vercel)
-].filter(Boolean); // remove undefined/null if env var is not set
-
+    "http://localhost:5173",         
+    process.env.FRONTEND_HOSTED,       
+].filter(Boolean);
 console.log("Allowed CORS origins:", allowedOrigins);
 
 app.use(
