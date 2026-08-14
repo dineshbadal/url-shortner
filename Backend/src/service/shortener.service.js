@@ -10,7 +10,7 @@ const shortenUrl = async (url) => {
   // console.log(randomId)
   const savedUrl = await Url.create({url, shortcode:randomId });
   // console.log(savedUrl);
-  const shortUrl = `http://localhost:3000/api/url/${savedUrl.shortcode}`
+  const shortUrl = `https://url-shortner-three-gamma.vercel.app/${savedUrl.shortcode}`
   return shortUrl;
 }
 const expandUrl = async (shortcode) => {
