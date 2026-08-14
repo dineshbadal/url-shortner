@@ -15,10 +15,10 @@ dotenv.config({
 const app = express();
 
 const allowedOrigins = [
-    "http://localhost:5173",
+    // "http://localhost:5173",
     process.env.FRONTEND_HOSTED
 ];
-console.log(process.env.FRONTEND_HOSTED,"This is the frontend hosted");
+console.log(process.env.FRONTEND_HOSTED, "This is the frontend hosted");
 app.use(
     cors({
         origin: allowedOrigins
