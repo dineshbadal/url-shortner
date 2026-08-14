@@ -5,6 +5,7 @@ const GetShortenUrl = async(url) => {
   console.log(url);
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   try {
+    console.log(backendUrl, "This is the backend url");
     const response = await axios.post(`${backendUrl}/api/url`, {   
         url: url,
     })

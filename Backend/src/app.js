@@ -13,15 +13,25 @@ dotenv.config({
 });
 
 const app = express();
-
+// Origins allowed to access the backend
 const allowedOrigins = [
-    // "http://localhost:5173",
-    process.env.FRONTEND_HOSTED
-];
-console.log(process.env.FRONTEND_HOSTED, "This is the frontend hosted");
+    "http://localhost:5173",           // local dev
+    process.env.FRONTEND_HOSTED,      // production frontend (e.g. Vercel)
+].filter(Boolean); // remove undefined/null if env var is not set
+
+console.log("Allowed CORS origins:", allowedOrigins);
+
 app.use(
     cors({
-        origin: allowedOrigins
+        origin: (origin, callback) => {
+            // Allow requests with no origin (e.g. curl, Postman, server-to-server)
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+            return callback(new Error(`CORS: origin '${origin}' not allowed`));
+        },
+        credentials: true,
     })
 );
 
