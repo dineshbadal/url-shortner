@@ -14,9 +14,11 @@ dotenv.config({
 
 const app = express();
 // Origins allowed to access the backend
+const FrontendUrl = process.env.FRONTEND_HOSTED;
+console.log("Frontend URL:", FrontendUrl);
 const allowedOrigins = [
     "http://localhost:5173",         
-    process.env.FRONTEND_HOSTED,       
+    FrontendUrl,       
 ].filter(Boolean);
 console.log("Allowed CORS origins:", allowedOrigins);
 
