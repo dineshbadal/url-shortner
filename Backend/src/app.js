@@ -18,7 +18,7 @@ const FrontendUrl = process.env.FRONTEND_HOSTED;
 console.log("Frontend URL:", FrontendUrl);
 const allowedOrigins = [
     "http://localhost:5173",         
-    FrontendUrl,       
+    "https://url-shortner-three-gamma.vercel.app",       
 ].filter(Boolean);
 console.log("Allowed CORS origins:", allowedOrigins);
 
